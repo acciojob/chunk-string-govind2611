@@ -1,21 +1,20 @@
-function stringChop(str, size) {
-  if (str === null) {
+function stringChop(inputString, chunkSize) {
+  if (inputString === null) {
     return [];
   }
 
   const result = [];
   let startIndex = 0;
 
-  while (startIndex < str.length) {
-    const chunk = str.slice(startIndex, startIndex + size);
+  while (startIndex < inputString.length) {
+    const chunk = inputString.slice(startIndex, startIndex + chunkSize);
     result.push(chunk);
-    startIndex += size;
+    startIndex += chunkSize;
   }
 
   return result;
 }
 
-const str = prompt("Enter String.");
-const size = prompt("Enter Chunk Size.");
-const chunks = stringChop(str, parseInt(size, 10));
-alert(JSON.stringify(chunks));
+console.log(stringChop(null, 5)); 
+console.log(stringChop("abc", 5));
+console.log(stringChop("Hello, world!", 5)); console.log(stringChop("12345", 2)); // ["12", "34", "5"]

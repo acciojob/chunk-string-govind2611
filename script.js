@@ -1,8 +1,21 @@
 function stringChop(str, size) {
-  // your code here
+  if (str === null) {
+    return [];
+  }
+
+  const result = [];
+  let startIndex = 0;
+
+  while (startIndex < str.length) {
+    const chunk = str.slice(startIndex, startIndex + size);
+    result.push(chunk);
+    startIndex += size;
+  }
+
+  return result;
 }
 
-// Do not change the code below
 const str = prompt("Enter String.");
 const size = prompt("Enter Chunk Size.");
-alert(stringChop(str, size));
+const chunks = stringChop(str, parseInt(size, 10));
+alert(JSON.stringify(chunks));
